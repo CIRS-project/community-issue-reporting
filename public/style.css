@@ -1,0 +1,94 @@
+/* ===== General ===== */
+* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; }
+
+/* ===== Hero Section ===== */
+.hero-section {
+  min-height: 65vh;
+  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+  padding: 60px 20px;
+}
+
+/* ===== Auth Pages ===== */
+.auth-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d6efd 0%, #084298 100%);
+  padding: 20px;
+}
+
+.auth-wrapper {
+  width: 100%;
+  max-width: 480px;
+}
+
+.auth-card {
+  border-radius: 16px;
+  border: none;
+}
+
+/* ===== Status Badges ===== */
+.badge-pending    { background-color: #ffc107; color: #000; }
+.badge-progress   { background-color: #0dcaf0; color: #000; }
+.badge-resolved   { background-color: #198754; color: #fff; }
+.badge-rejected   { background-color: #dc3545; color: #fff; }
+
+/* ===== Priority Badges ===== */
+.badge-high   { background-color: #dc3545; color: #fff; }
+.badge-medium { background-color: #ffc107; color: #000; }
+.badge-low    { background-color: #198754; color: #fff; }
+
+/* ===== Stat Cards ===== */
+.stat-card {
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+.stat-card:hover { transform: translateY(-3px); }
+
+/* ===== Complaint Cards (Track Page) ===== */
+.complaint-card {
+  border-left: 4px solid #0d6efd;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+.complaint-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.complaint-card.status-resolved { border-left-color: #198754; }
+.complaint-card.status-progress { border-left-color: #0dcaf0; }
+.complaint-card.status-rejected { border-left-color: #dc3545; }
+.complaint-card.status-pending  { border-left-color: #ffc107; }
+
+/* ===== Table ===== */
+.table th { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #0d6efd; border-radius: 4px; }
+
+/* ===== Alert ===== */
+.alert { border-radius: 10px; }
+
+/* ===== Navbar ===== */
+.navbar-brand { font-size: 1.3rem; }
+
+/* ===== File Preview ===== */
+#filePreview img {
+  width: 80px; height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #dee2e6;
+}
+
+/* ===== Status Timeline ===== */
+.timeline { border-left: 2px solid #dee2e6; padding-left: 16px; }
+.timeline-item { margin-bottom: 12px; position: relative; }
+.timeline-item::before {
+  content: '';
+  width: 10px; height: 10px;
+  background: #0d6efd;
+  border-radius: 50%;
+  position: absolute;
+  left: -21px; top: 5px;
+}

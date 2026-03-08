@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Complaint | CommunityReport</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><i class="bi bi-geo-alt-fill me-2"></i>CommunityReport</a>
+    <div class="ms-auto d-flex gap-2 align-items-center">
+      <span class="text-white small me-2">Welcome, <span id="userName">Resident</span></span>
+      <a href="/track" class="btn btn-outline-light btn-sm">Track Complaint</a>
+      <button onclick="logout()" class="btn btn-light btn-sm text-danger fw-bold">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white py-3">
+          <h4 class="mb-0"><i class="bi bi-exclamation-circle me-2"></i>Submit a Community Complaint</h4>
+        </div>
+        <div class="card-body p-4">
+          <div id="alertBox" class="d-none"></div>
+
+          <form id="complaintForm" enctype="multipart/form-data">
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Complaint Title <span class="text-danger">*</span></label>
+              <input type="text" id="title" class="form-control" placeholder="Brief title of the issue" required/>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Category <span class="text-danger">*</span></label>
+                <select id="category" class="form-select" required>
+                  <option value="">Select Category</option>
+                  <option value="Garbage Overflow">🗑️ Garbage Overflow</option>
+                  <option value="Water Leakage">💧 Water Leakage</option>
+                  <option value="Pothole">🕳️ Pothole</option>
+                  <option value="Streetlight Failure">💡 Streetlight Failure</option>
+                  <option value="Drainage Issue">🌊 Drainage Issue</option>
+                  <option value="Other">📋 Other</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Priority <span class="text-danger">*</span></label>
+                <select id="priority" class="form-select" required>
+                  <option value="Low">🟢 Low</option>
+                  <option value="Medium" selected>🟡 Medium</option>
+                  <option value="High">🔴 High</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Location <span class="text-danger">*</span></label>
+              <input type="text" id="location" class="form-control" placeholder="Street, area, or landmark" required/>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Description <span class="text-danger">*</span></label>
+              <textarea id="description" class="form-control" rows="4" placeholder="Describe the issue in detail..." required></textarea>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Upload Images/Videos (optional, max 5)</label>
+              <input type="file" id="attachments" class="form-control" multiple accept="image/*,video/*"/>
+              <small class="text-muted">Supported: JPG, PNG, GIF, MP4, MOV. Max 50MB total.</small>
+              <div id="filePreview" class="mt-2 d-flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary fw-bold px-4" id="submitBtn">
+                <span id="btnText"><i class="bi bi-send me-2"></i>Submit Complaint</span>
+                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none ms-2"></span>
+              </button>
+              <a href="/track" class="btn btn-outline-secondary px-4">Track My Complaints</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/resident.js"></script>
+</body>
+</html>
